@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .container .right {
+            display: flex;
+            flex-direction: column;
+            margin-left: 50px;
+        }
+
+        .container .right .input {
+            display: flex;
+            margin: 10px 0;
+
+        }
+
+        .container .right #color-btn {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: skyblue;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        #rgb {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #color-area {
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body id="capture">
+    <div class="container">
+        <div class="left" id="left">
+            <img src="./images/1.jpg" alt="" class="img" id="img">
+        </div>
+        <div class="right">
+            <div class="input">X: <input type="text" id="x_input"></div>
+            <div class="input">Y: <input type="text" id="y_input"></div>
+            <button id="color-btn" class="color-btn">获取提取颜色</button>
+            <p id="color-area"></p>
+            <p id='rgb'>
+                <p>
+                    R: <input type="text" id="r">
+                </p>
+                <p>
+                    G: <input type="text" id="g">
+                </p>
+                <p>B: <input type="text" id="b"></p>
+                <p> A: <input type="text" id="a"></p>
+                <span id="hex"></span>
+            </p>
+
+            <p id="color">
+
+            </p>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
