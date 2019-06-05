@@ -49,6 +49,27 @@
             height: 30px;
             margin-top: 10px;
         }
+
+        .upload-container {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: blueviolet;
+            border-radius: 10px;
+            margin-left: 50px;
+            color: #fff;
+            position: relative;
+        }
+
+        #upload {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -78,6 +99,10 @@
 
             </p>
         </div>
+    </div>
+    <div class="upload-container">
+        <div>更换图片</div>
+        <input type="file" id="upload" class="upload" accept="image/*" />
     </div>
     <script src="./app.js"></script>
 </body>

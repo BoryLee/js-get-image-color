@@ -6,17 +6,12 @@
     var colorArea = getDOMElement('color-area');
     var imageContainer = getDOMElement('left');
     var imageDOM = getDOMElement('img');
+    var uploadInput = getDOMElement('upload');
     var x;
     var y;
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
     var image = new Image();
-    image.src = imageDOM.src;
-    canvas.setAttribute('width', image.width);
-    canvas.setAttribute('height', image.height);
-    image.onload = function () {
-        ctx.drawImage(image, 0, 0)
-    }
     imageDOM.addEventListener('click', function (e) {
         x = e.clientX - imageContainer.scrollLeft;
         y = e.clientY - imageContainer.scrollTop;
@@ -31,6 +26,28 @@
     colorBtn.addEventListener('click', function () {
         getRGBA();
     }, false);
+
+    uploadInput.addEventListener('change', function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file)
+        reader.onload = function (e) {
+            imageDOM.src = e.target.result;
+            render()
+        }
+
+    })
+
+    render();
+
+    function render() {
+        image.src = imageDOM.src;
+        canvas.setAttribute('width', image.width);
+        canvas.setAttribute('height', image.height);
+        image.onload = function () {
+            ctx.drawImage(image, 0, 0)
+        }
+    }
 
     function getRGBA() {
         if (x && y) {
